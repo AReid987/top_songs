@@ -1,8 +1,9 @@
 class TopSongs::CLI
 
-  def call 
+  def call
     puts "Today's top songs:"
     list_songs
+    print_songs
   end
 
   def list_songs
@@ -11,5 +12,22 @@ class TopSongs::CLI
     puts "3. Bruno Mars & Cardi B."
     puts "4. Camila Cabello"
     puts "5. Post Malone Featuring 21 Savage"
+  end
+
+  def print_songs
+    puts "Enter the number of the song you'd like more info on:"
+    input = gets.strip
+
+    if input == "1"
+      puts "Song 1..."
+    elsif input == "2"
+      puts "Song 2..."
+    elsif input == "3"
+      puts "Song 3..."
+    elsif input == "4"
+      puts "Song 4..."
+    elsif input == "5"
+      puts "Song 5..."
+    end
   end
 end
