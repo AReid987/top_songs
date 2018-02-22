@@ -15,19 +15,33 @@ class TopSongs::CLI
   end
 
   def print_songs
-    puts "Enter the number of the song you'd like more info on:"
-    input = gets.strip
+    input = nil
+    while input != "exit"
+      puts "Enter the number of the song you'd like more info on:"
 
-    if input == "1"
-      puts "Song 1..."
-    elsif input == "2"
-      puts "Song 2..."
-    elsif input == "3"
-      puts "Song 3..."
-    elsif input == "4"
-      puts "Song 4..."
-    elsif input == "5"
-      puts "Song 5..."
+      input = gets.strip
+      if input == "1"
+        puts "Song 1..."
+      elsif input == "2"
+        puts "Song 2..."
+      elsif input == "3"
+        puts "Song 3..."
+      elsif input == "4"
+        puts "Song 4..."
+      elsif input == "5"
+        puts "Song 5..."
+      elsif input == "list"
+        list_songs
+      elsif input == "exit"
+        goodbye
+      else
+        puts "Invalid entry..."
+      end
     end
   end
+
+  def goodbye
+    puts "Goodbye."
+  end
+
 end
