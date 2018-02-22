@@ -2,11 +2,6 @@ class TopSongs::Song
   attr_accessor :number, :name, :artist, :last_week
 
   def self.create_songs
-    #puts "1. Drake"
-    #puts "2. Ed Sheeran"
-    #puts "3. Bruno Mars & Cardi B."
-    #puts "4. Camila Cabello"
-    #puts "5. Post Malone Featuring 21 Savage"
 
     song_1 = self.new
     song_1.name = "God's Plan"

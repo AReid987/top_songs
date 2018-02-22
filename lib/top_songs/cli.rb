@@ -3,7 +3,7 @@ class TopSongs::CLI
   def call
     puts "Today's top songs:"
     list_songs
-    print_songs
+    print_song
   end
 
   def list_songs
@@ -14,24 +14,19 @@ class TopSongs::CLI
     #puts "5. Post Malone Featuring 21 Savage"
 
     @songs = TopSongs::Song.create_songs
+    @songs.each do |song|
+      puts "#{song.number}. #{song.name}"
+    end
   end
 
-  def print_songs
+  def print_song
     input = nil
     while input != "exit"
       puts "Enter the number of the song you'd like more info on:"
 
       input = gets.strip
-      if input == "1"
-        puts "Song 1..."
-      elsif input == "2"
-        puts "Song 2..."
-      elsif input == "3"
-        puts "Song 3..."
-      elsif input == "4"
-        puts "Song 4..."
-      elsif input == "5"
-        puts "Song 5..."
+      if input.to_i > 0 && @songs.length >= input.to_i
+        puts @songs[input.to_i - 1].name
       elsif input == "list"
         list_songs
       elsif input == "exit"
