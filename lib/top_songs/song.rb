@@ -2,8 +2,8 @@ class TopSongs::Song
   attr_accessor :number, :name, :artist, :last_week
 
   def self.create_songs
-
-    TopSongs::Scraper.
+    #TopSongs::Scraper.new
+    song = []
     song_1 = self.new
     song_1.name = "God's Plan"
     song_1.artist = "Drake"
