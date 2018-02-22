@@ -1,0 +1,5 @@
+class TopSongs::Song
+
+  
+
+end

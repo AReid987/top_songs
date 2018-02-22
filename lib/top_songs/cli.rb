@@ -12,6 +12,8 @@ class TopSongs::CLI
     puts "3. Bruno Mars & Cardi B."
     puts "4. Camila Cabello"
     puts "5. Post Malone Featuring 21 Savage"
+
+    @songs = TopSongs::Song.create_songs
   end
 
   def print_songs
