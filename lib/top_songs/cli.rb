@@ -7,11 +7,6 @@ class TopSongs::CLI
   end
 
   def list_songs
-    #puts "1. Drake"
-    #puts "2. Ed Sheeran"
-    #puts "3. Bruno Mars & Cardi B."
-    #puts "4. Camila Cabello"
-    #puts "5. Post Malone Featuring 21 Savage"
 
     @songs = TopSongs::Song.create_songs
     @songs.each do |song|
@@ -26,7 +21,8 @@ class TopSongs::CLI
 
       input = gets.strip
       if input.to_i > 0 && @songs.length >= input.to_i
-        puts @songs[input.to_i - 1].name
+        the_song = @songs[input.to_i - 1]
+        puts "#{the_song.number}. #{the_song.artist} - #{the_song.name} - #{the_song.last_week} "
       elsif input == "list"
         list_songs
       elsif input == "exit"
