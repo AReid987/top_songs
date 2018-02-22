@@ -3,6 +3,7 @@ class TopSongs::Song
 
   def self.create_songs
 
+    TopSongs::Scraper.
     song_1 = self.new
     song_1.name = "God's Plan"
     song_1.artist = "Drake"
