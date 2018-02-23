@@ -3,20 +3,17 @@ class TopSongs::Song
 
   def self.create_songs
     #TopSongs::Scraper.new
-    song = []
-    song_1 = self.new
-    song_1.name = "God's Plan"
-    song_1.artist = "Drake"
-    song_1.number = "1"
-    song_1.last_week = "Last Week: 1"
+    songs = []
 
-    song_2 = self.new
-    song_2.name = "Perfect"
-    song_2.artist = "Ed Sheeran"
-    song_2.number = "2"
-    song_2.last_week = "Last Week: 2"
+    doc = Nokogiri::HTML(open("https://www.billboard.com/charts/hot-100"))
+    #doc.css("div.chart-row__main-display") => songs
+    #songs.css("h2.chart-row__song") => name
+    #songs.css("a.chart-row__artist").attribute("data-tracklabel").value => artist
+    #songs.css("span.chart-row__current-week") => current rank
+    #songs.css("span.chart-row__last-week") => last week
 
-    [song_1, song_2]
+    binding.pry
+    songs
   end
 
 end
