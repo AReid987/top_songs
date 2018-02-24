@@ -9,15 +9,13 @@ class TopSongs::SongScraper
   end
 
   def make_songs #create songs from the scrape_songs selection
-    i = 0
+    #i = 0
     scrape_songs.each do |song|
-      if i <= 4
+      if TopSongs::Song.all_songs.length <= TopSongs::CLI.song_number - 1
         TopSongs::Song.create_songs(song)
       end
-      i += 1
-      #binding.pry
+    #  i += 1
     end
   end
-
 
 end

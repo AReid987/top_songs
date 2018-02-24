@@ -12,7 +12,6 @@ class TopSongs::Song
       new_song.last_week = song.css("span.chart-row__last-week").text #=> last week
 
       @@all_songs << new_song
-      #binding.pry
   end
 
   def self.all_songs
