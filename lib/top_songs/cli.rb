@@ -1,6 +1,8 @@
 class TopSongs::CLI
 
   def call
+    TopSongs::SongScraper.new.make_songs
+
     puts "Today's top songs:"
     list_songs
     print_song
@@ -8,9 +10,10 @@ class TopSongs::CLI
 
   def list_songs
 
-    @songs = TopSongs::Song.create_songs
+    @songs = TopSongs::Song.all_songs
     @songs.each do |song|
       puts "#{song.number}. #{song.name}"
+      #binding.pry 
     end
   end
 

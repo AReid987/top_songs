@@ -1,19 +1,21 @@
 class TopSongs::Song
+
   attr_accessor :number, :name, :artist, :last_week
 
-  def self.create_songs
-    #TopSongs::Scraper.new
-    songs = []
+  @@all_songs = []
 
-    doc = Nokogiri::HTML(open("https://www.billboard.com/charts/hot-100"))
-    #doc.css("div.chart-row__main-display") => songs
-    #songs.css("h2.chart-row__song") => name
-    #songs.css("a.chart-row__artist").attribute("data-tracklabel").value => artist
-    #songs.css("span.chart-row__current-week") => current rank
-    #songs.css("span.chart-row__last-week") => last week
+  def self.create_songs(song)
+      new_song = TopSongs::Song.new
+      new_song.name = song.css("h2.chart-row__song").text #=> name
+      #new_song.artist = song.css("a.chart-row__artist")[i].text.strip #=> artist
+      new_song.number = song.css("span.chart-row__current-week").text# => current rank
+      new_song.last_week = song.css("span.chart-row__last-week").text #=> last week
 
-    binding.pry
-    songs
+      @@all_songs << new_song
+      #binding.pry
   end
 
+  def self.all_songs
+    @@all_songs
+  end
 end
